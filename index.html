@@ -1,22 +1,113 @@
 <!DOCTYPE html>
-
-<html
- 
-lang="en">
+<html lang="en">
 
 <head>
-    <meta
- 
-charset="UTF-8">
-    <meta
- 
-name="viewport"
- 
-content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-    
-    <body style="background-color: #B5C6E0;">     
-</body>
-</html>
 
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <h1>Hello, I'm <span>Ajay</span></h1>
+                <p>Web Developer</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="About">
+        <div class="container">
+            <div class="row">
+                <!--
+            <div class="About-col-1">
+                <img src="images/background.jpeg">
+        </div>
+        -->
+                <div class="About-col-2"></div>
+                <h1 class="sub-title">About me</h1>
+                <p>
+                    I'm Ajay, a passionate web developer with a knack for crafting captivating digital experiences. With
+                    a blend of creativity and technical expertise, I specialize in turning ideas into functional and
+                    visually stunning websites. Whether it's building responsive designs, optimizing user interfaces, or
+                    diving into the latest coding languages, I thrive on bringing visions to life in the digital realm.
+                    Let's connect and collaborate to make your online presence truly shine!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h2 class="contact-form">Contact me</h2>
+                    <p>ajaypjoy10@gmail.com</p>
+                    <p>+91 7012383125</p>
+                    <div class="social-icons">
+                        <a href=""><i class="fab fa-github"></i></a>
+                        <a href=""><i class="fab fa-discord"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <a href="" download class="button1">Download CV</a>
+                </div>
+
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea><br>
+                        <button type="submit" class="Send">Send</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ Ajay</p>
+        </div>
+    </div>
+
+
+    <script>
+        var sidemenu = document.getElementById(sidemenu);
+        function openmenu() {
+            sidemenu.style.right = "0"
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px"
+    </script>
+
+    <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw5s833eKLBte94pBhW-KjIiuTp3NYYHDPp_DHSEZuvCGyxJmkR0iLMeYsPibsL131Z/exec'
+            const form = document.forms['submit-to-google-sheet']
+
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+
+                    .then(response => {
+                        form.reset()
+                    })
+
+                    .catch(error => console.error('Error!', error.message))
+            })
+    </script>
+
+
+</body>
+
+</html>
